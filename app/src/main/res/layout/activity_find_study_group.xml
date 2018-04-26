@@ -7,6 +7,7 @@
     tools:context="com.school.optimstudy.find_study_group_activity.FindStudyGroup">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <android.support.v7.widget.CardView
@@ -58,15 +59,50 @@
                         android:layout_weight="80"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/study_group_prof_field"
+                        android:hint="@string/search_prof_study_groups"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:layout_margin="8dp"
+                        android:layout_weight="80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/study_group_size_field"
+                        android:hint="@string/search_size_study_groups"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:layout_margin="8dp"
+                        android:layout_weight="80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/study_group_location_field"
+                        android:hint="@string/search_location_study_groups"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:layout_margin="8dp"
+                        android:layout_weight="80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/study_group_duration_field"
+                        android:hint="@string/search_duration_study_groups"
+                        android:maxLines="1"
+                        android:inputType="text"
+                        android:layout_margin="8dp"
+                        android:layout_weight="80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_result_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 
