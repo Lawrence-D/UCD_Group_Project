@@ -18,11 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".practice_test_activity.PracticeTest" />
-        <activity android:name=".create_study_group.CreateStudyGroupActivity" />
-        <activity android:name=".scheduler_activity.Scheduler" />
-        <activity android:name=".find_study_group_activity.FindStudyGroup" />
-        <activity android:name=".study_tracker_activity.StudyTracker"></activity>
     </application>
 
 </manifest>
