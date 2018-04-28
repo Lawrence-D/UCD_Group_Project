@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".create_study_group.Create_Study_Group_Location">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create Study Group"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="10sp"
+                android:textAllCaps="true"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="City"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="State"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Zip Code"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Room #"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:textAllCaps="true" />
+
+            <EditText
+                android:id="@+id/editText8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:ems="10"
+                android:inputType="text|textPersonName"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:text="Continue" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+</layout>
+
+
+
