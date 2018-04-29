@@ -3,4 +3,36 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <!-- Custom string values are placed here for reuse and performance/memory -->
+    <string name="title_create_study_group">Create Study Group</string>
+    <string name="title_practice_test">Practice Tests</string>
+    <string name="title_scheduler">Schedule</string>
+    <string name="title_find_study_groups">Find Study Groups</string>
+    <string name="title_study_tracker">Study Tracker</string>
+    <string name="search_study_groups">Search by Class</string>
+    <string name="search_uni_study_groups">University</string>
+    <string name="search_prof_study_groups">Professor</string>
+    <string name="search_size_study_groups">Size</string>
+    <string name="search_location_study_groups">Meeting Location</string>
+    <string name="search_duration_study_groups">Meeting Duration</string>
+
+    <string name="search_error_empty">Please enter a search term!</string>
+    <string name="title_activity_practice_tabbed">activity_practice_tabbed</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_practice">activity_practice</string>
+    <string name="tab_text_1">Take Practice Test</string>
+    <string name="tab_text_2">Create Practice Test</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="new_test">Create Test</string>
+    <string name="take_test">Take Test</string>
+    <string name="title_activity_test">activity_test</string>
+    <string name="testNewQuestion">New Question</string>
+    <string name="testNewOption">New Option</string>
+    <string name="testCreate">Create the Test</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_new_test">activity_new_test</string>
 </resources>
