@@ -52,5 +52,10 @@ class MainActivity : AppCompatActivity() {
 
         //Here we tell the bottom nav to use the above mOnNavigationItemSelectedListener
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        
+        //Here we tell the fragment manager to populate the FrameLayout with the GroupCreate fragment
+        supportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout, CreateStudyGroupActivity.newInstance())
+                .commit()
     }
 }
