@@ -36,7 +36,7 @@ public class activity_new_test extends AppCompatActivity {
 
                     Button newQuestion = new Button(activity_new_test.this);
                     newQuestion.setOnClickListener(this);
-
+                    newQuestion.setText("New Question");
                     LinearLayout horizontalLayout = new LinearLayout(activity_new_test.this);
                     horizontalLayout.setOrientation(LinearLayout.HORIZONTAL);
                     horizontalLayout.addView(newOptionButton);
