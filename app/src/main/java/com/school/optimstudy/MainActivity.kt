@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         
         //Here we tell the fragment manager to populate the FrameLayout with the GroupCreate fragment
-        supportFragmentManager().beginTransaction()
+        supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout, CreateStudyGroupActivity.newInstance())
                 .commit()
     }
