@@ -85,8 +85,16 @@ class FindStudyGroup : Fragment() {
             //Show views that are hidden and also pray a little bc this might not work
             //UPDATE: It works
             when (refined_search_items.visibility) {
-                View.VISIBLE -> refined_search_items.visibility = View.GONE
-                View.GONE -> refined_search_items.visibility = View.VISIBLE
+                View.VISIBLE -> {
+                    refined_search_items.visibility = View.GONE
+                    search_button.setImageDrawable(context.resources
+                            .getDrawable(R.drawable.ic_keyboard_arrow_down_black_24dp))
+                }
+                View.GONE -> {
+                    refined_search_items.visibility = View.VISIBLE
+                    search_button.setImageDrawable(context.resources
+                            .getDrawable(R.drawable.ic_keyboard_arrow_up_black_24dp))
+                }
             }
         }
     }
