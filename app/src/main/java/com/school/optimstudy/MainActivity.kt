@@ -52,10 +52,40 @@ class MainActivity : AppCompatActivity() {
 
         //Here we tell the bottom nav to use the above mOnNavigationItemSelectedListener
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        
+
         //Here we tell the fragment manager to populate the FrameLayout with the GroupCreate fragment
         supportFragmentManager.beginTransaction()
                 .replace(R.id.frame_layout, CreateStudyGroupActivity.newInstance())
                 .commit()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        var selectedFragment = Fragment()
+
+        when (navigation.selectedItemId) {
+        //This is called when the create_study_group item is selected
+            R.id.create_study_group -> {
+                selectedFragment = CreateStudyGroupActivity.newInstance()
+            }
+        //This one is called when the practice_test item is selected...
+            R.id.practice_test -> {
+                selectedFragment = PracticeTest.newInstance()
+            }
+        //I hope you get the point by now....
+            R.id.scheduler -> {
+                selectedFragment = Scheduler.newInstance()
+            }
+            R.id.find_study_group -> {
+                selectedFragment = FindStudyGroup.newInstance()
+            }
+            R.id.study_tracker -> {
+                selectedFragment = StudyTracker.newInstance()
+            }
+        }
+        val transaction: android.support.v4.app.FragmentTransaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout, selectedFragment)
+        transaction.commit()
     }
 }
