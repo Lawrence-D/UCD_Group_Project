@@ -42,7 +42,8 @@
             android:layout_marginLeft="15sp"
             android:layout_marginRight="15sp"
             android:ems="10"
-            android:inputType="textPersonName|time"
+            android:maxLength="5"
+            android:inputType="time"
             android:textAllCaps="true"
             android:textSize="12sp" />
 
@@ -61,8 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15sp"
             android:layout_marginRight="15sp"
+            android:maxLength="5"
             android:ems="10"
-            android:inputType="textPersonName|time"
+            android:inputType="time"
             android:textSize="12sp" />
 
         <TextView
@@ -155,7 +157,7 @@
                 android:layout_height="match_parent" >
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/finishConfirmation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -164,15 +166,6 @@
                     android:layout_marginRight="15sp"/>
             </TableRow>
         </TableLayout>
-
-        <Button
-            android:id="@+id/finishConfirmation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15sp"
-            android:layout_marginRight="15sp"
-            android:text="Continue" />
-
     </LinearLayout>
 
 </RelativeLayout>

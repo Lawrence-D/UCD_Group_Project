@@ -1,0 +1,518 @@
+From 31855f8ff4fe95dc6d506144ddb5e7c5e2d6103d Mon Sep 17 00:00:00 2001
+From: Lawrence D'Addio <Lawdaddio@yahoo.com>
+Date: Sun, 29 Apr 2018 12:02:25 -0400
+Subject: [PATCH] Scheduler
+
+I tried to do what you did to the other files and couldn't get it to work when trying to make a new instance. Hopefully you don't have to do much tweaking. Thanks Joe.
+---
+ activity_scheduler.xml                            | 125 +++++++++++++++
+ activity_scheduler_confirmation_page.xml          |  42 +++++
+ activity_scheduler_page2.xml                      | 178 ++++++++++++++++++++++
+ scheduler_activity/Scheduler.java                 |  47 ++++++
+ scheduler_activity/SchedulerConfirmationPage.java |  34 +++++
+ scheduler_activity/SchedulerPage2.java            |  33 ++++
+ 6 files changed, 459 insertions(+)
+ create mode 100644 activity_scheduler.xml
+ create mode 100644 activity_scheduler_confirmation_page.xml
+ create mode 100644 activity_scheduler_page2.xml
+ create mode 100644 scheduler_activity/Scheduler.java
+ create mode 100644 scheduler_activity/SchedulerConfirmationPage.java
+ create mode 100644 scheduler_activity/SchedulerPage2.java
+
+diff --git a/activity_scheduler.xml b/activity_scheduler.xml
+new file mode 100644
+index 0000000..191b1a7
+--- /dev/null
++++ b/activity_scheduler.xml
+@@ -0,0 +1,125 @@
++
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context="com.school.optimstudy.scheduler_activity.Scheduler">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:orientation="vertical">
++
++        <TextView
++            android:id="@+id/textView15"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="10sp"
++            android:layout_marginRight="10sp"
++            android:text="Scheduler Survey"
++            android:textAllCaps="true"
++            android:textSize="18sp"
++            android:textStyle="bold" />
++
++        <TextView
++            android:id="@+id/textView16"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:text="What are you interested in studying?"
++            android:textAllCaps="true" />
++
++        <EditText
++            android:id="@+id/editText7"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:ems="10"
++            android:inputType="text|textPersonName"
++            android:textSize="12sp" />
++
++        <TextView
++            android:id="@+id/textView17"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:text="Subject"
++            android:textAllCaps="true" />
++
++        <Spinner
++            android:id="@+id/spinner"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp" />
++
++        <RadioGroup
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content">
++
++            <TextView
++                android:id="@+id/textView21"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginLeft="15sp"
++                android:layout_marginRight="15sp"
++                android:layout_weight="1"
++                android:text="How knowledgable do you feel about the subject?"
++                android:textAllCaps="true" />
++
++            <RadioButton
++                android:id="@+id/radioButton7"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginLeft="15sp"
++                android:layout_marginRight="15sp"
++                android:layout_weight="1"
++                android:text="Very knowledgeable"
++                android:textAllCaps="true" />
++
++            <RadioButton
++                android:id="@+id/radioButton6"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginLeft="15sp"
++                android:layout_marginRight="15sp"
++                android:layout_weight="1"
++                android:text="Somewhat knowledgeable"
++                android:textAllCaps="true" />
++
++            <RadioButton
++                android:id="@+id/radioButton5"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:layout_marginLeft="15sp"
++                android:layout_marginRight="15sp"
++                android:layout_weight="1"
++                android:text="Not very knowledgeable"
++                android:textAllCaps="true" />
++
++        </RadioGroup>
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++
++            <Button
++                android:id="@+id/continueSchedulerPage2"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Continue"
++                android:layout_marginLeft="15sp"
++                android:layout_marginRight="15sp"/>
++        </LinearLayout>
++
++
++    </LinearLayout>
++
++</RelativeLayout>
+diff --git a/activity_scheduler_confirmation_page.xml b/activity_scheduler_confirmation_page.xml
+new file mode 100644
+index 0000000..4c9645c
+--- /dev/null
++++ b/activity_scheduler_confirmation_page.xml
+@@ -0,0 +1,42 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".scheduler_activity.SchedulerConfirmationPage">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:orientation="vertical">
++
++        <TextView
++            android:id="@+id/textView15"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="10sp"
++            android:layout_marginRight="10sp"
++            android:text="Scheduler Survey"
++            android:textAllCaps="true"
++            android:textSize="18sp"
++            android:textStyle="bold" />
++
++        <TextView
++            android:id="@+id/textView24"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="15sp"
++            android:text="The subject you wish to gain more knowledge in has been successfully scheduled in the study tracker!"
++            android:textSize="24sp" />
++
++        <Button
++            android:id="@+id/schedulerHome"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Home" />
++
++
++    </LinearLayout>
++</RelativeLayout>
+\ No newline at end of file
+diff --git a/activity_scheduler_page2.xml b/activity_scheduler_page2.xml
+new file mode 100644
+index 0000000..e05c93e
+--- /dev/null
++++ b/activity_scheduler_page2.xml
+@@ -0,0 +1,178 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    tools:context=".scheduler_activity.SchedulerPage2">
++
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:layout_alignParentStart="true"
++        android:layout_alignParentTop="true"
++        android:orientation="vertical">
++
++        <TextView
++            android:id="@+id/textView15"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="10sp"
++            android:layout_marginRight="10sp"
++            android:text="Scheduler Survey"
++            android:textAllCaps="true"
++            android:textSize="18sp"
++            android:textStyle="bold" />
++
++        <TextView
++            android:id="@+id/textView18"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Unavailability Start Time"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:textAllCaps="true" />
++
++        <EditText
++            android:id="@+id/editText12"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:ems="10"
++            android:inputType="textPersonName|time"
++            android:textAllCaps="true"
++            android:textSize="12sp" />
++
++        <TextView
++            android:id="@+id/textView22"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:text="Unavailability End Time"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:textAllCaps="true" />
++
++        <EditText
++            android:id="@+id/editText15"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:ems="10"
++            android:inputType="textPersonName|time"
++            android:textSize="12sp" />
++
++        <TextView
++            android:id="@+id/textView23"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:text="Days of Unavailability "
++            android:textAllCaps="true"
++            android:textSize="14sp" />
++
++        <TableLayout
++            android:layout_width="match_parent"
++            android:layout_height="match_parent">
++
++            <TableRow
++                android:layout_width="match_parent"
++                android:layout_height="match_parent" >
++
++                <CheckBox
++                    android:id="@+id/checkBox8"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Mon"
++                    android:layout_marginLeft="15sp"
++                    android:textSize="14sp" />
++
++                <CheckBox
++                    android:id="@+id/checkBox9"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Tues"
++                    android:textSize="14sp" />
++
++                <CheckBox
++                    android:id="@+id/checkBox10"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Weds"
++                    android:layout_marginRight="15sp"
++                    android:textSize="14sp" />
++
++            </TableRow>
++
++            <TableRow
++                android:layout_width="match_parent"
++                android:layout_height="match_parent" >
++
++                <CheckBox
++                    android:id="@+id/checkBox11"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Thurs"
++                    android:layout_marginLeft="15sp"
++                    android:textSize="14sp" />
++
++                <CheckBox
++                    android:id="@+id/checkBox12"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Fri"
++                    android:textSize="14sp" />
++
++                <CheckBox
++                    android:id="@+id/checkBox13"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Sat"
++                    android:textSize="14sp" />
++
++                <CheckBox
++                    android:id="@+id/checkBox14"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_weight="1"
++                    android:text="Sun"
++                    android:layout_marginRight="15sp"
++                    android:textSize="14sp" />
++            </TableRow>
++
++            <TableRow
++                android:layout_width="match_parent"
++                android:layout_height="match_parent" >
++
++                <Button
++                    android:id="@+id/button6"
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent"
++                    android:layout_weight="1"
++                    android:text="Finish"
++                    android:layout_marginLeft="15sp"
++                    android:layout_marginRight="15sp"/>
++            </TableRow>
++        </TableLayout>
++
++        <Button
++            android:id="@+id/finishConfirmation"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="15sp"
++            android:layout_marginRight="15sp"
++            android:text="Continue" />
++
++    </LinearLayout>
++
++</RelativeLayout>
+\ No newline at end of file
+diff --git a/scheduler_activity/Scheduler.java b/scheduler_activity/Scheduler.java
+new file mode 100644
+index 0000000..9f377ae
+--- /dev/null
++++ b/scheduler_activity/Scheduler.java
+@@ -0,0 +1,47 @@
++package com.school.optimstudy.scheduler_activity;
++
++import android.support.annotation.Nullable;
++import android.support.v4.app.Fragment;
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.Button;
++
++import com.school.optimstudy.R;
++
++public class Scheduler extends Fragment {
++    public static Scheduler newInstance() {
++        return new Scheduler();
++    }
++
++    @Override
++    public void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++    }
++
++    @Nullable
++    @Override
++    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
++        return inflater.inflate(R.layout.activity_scheduler, container, false);
++    }
++
++
++    @Override
++    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
++        Button cont = view.findViewById(R.id.continueSchedulerPage2);
++
++        cont.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                getFragmentManager().beginTransaction()
++                        .replace(R.id.frame_layout, SchedulerPage2.newInstance())
++                        .commit();
++            }
++        });
++    }
++
++
++
++
++}
+diff --git a/scheduler_activity/SchedulerConfirmationPage.java b/scheduler_activity/SchedulerConfirmationPage.java
+new file mode 100644
+index 0000000..daa313f
+--- /dev/null
++++ b/scheduler_activity/SchedulerConfirmationPage.java
+@@ -0,0 +1,34 @@
++package com.school.optimstudy.scheduler_activity;
++
++import android.support.annotation.Nullable;
++import android.support.v7.app.AppCompatActivity;
++import android.os.Bundle;
++import android.view.View;
++
++import com.school.optimstudy.R;
++
++public class SchedulerConfirmationPage extends AppCompatActivity {
++
++    public static SchedulerConfirmationPage newInstance() {
++        return new SchedulerConfirmationPage();
++    }
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_scheduler_confirmation_page);
++    }
++
++    @Override
++    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
++        view.findViewById(R.id.schedulerHome).setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                //start over i guess lol
++                getFragmentManager().beginTransaction()
++                        .replace(R.id.frame_layout, Scheduler.newInstance())
++                        .commit();
++            }
++        });
++    }
++}
+diff --git a/scheduler_activity/SchedulerPage2.java b/scheduler_activity/SchedulerPage2.java
+new file mode 100644
+index 0000000..c2571d6
+--- /dev/null
++++ b/scheduler_activity/SchedulerPage2.java
+@@ -0,0 +1,33 @@
++package com.school.optimstudy.scheduler_activity;
++
++import android.support.annotation.Nullable;
++import android.support.v7.app.AppCompatActivity;
++import android.os.Bundle;
++import android.view.View;
++
++import com.school.optimstudy.R;
++
++public class SchedulerPage2 extends AppCompatActivity {
++
++    public static SchedulerPage2 newInstance() {
++        return new SchedulerPage2();
++    }
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_scheduler_page2);
++    }
++
++    @Override
++    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
++        view.findViewById(R.id.finishConfirmation).setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                getFragmentManager().beginTransaction()
++                        .replace(R.id.frame_layout, SchedulerConfirmationPage.newInstance())
++                        .commit();
++            }
++        });
++    }
++}

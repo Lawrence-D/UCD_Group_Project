@@ -1,22 +1,25 @@
 package com.school.optimstudy.scheduler_activity;
 
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.school.optimstudy.R;
 
-public class SchedulerConfirmationPage extends AppCompatActivity {
+public class SchedulerConfirmationPage extends Fragment {
 
     public static SchedulerConfirmationPage newInstance() {
         return new SchedulerConfirmationPage();
     }
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scheduler_confirmation_page);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_scheduler_confirmation_page, container, false);
     }
 
     @Override
