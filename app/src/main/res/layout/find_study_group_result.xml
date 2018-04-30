@@ -6,6 +6,7 @@
     android:id="@+id/result_bg"
     android:clickable="true"
     android:focusable="true"
+    android:background="?selectableItemBackground"
     android:layout_margin="16dp">
 
     <ImageView

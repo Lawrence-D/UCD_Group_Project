@@ -72,7 +72,8 @@ class FindStudyGroup : Fragment() {
                 search_result_list.apply {
                     setHasFixedSize(true)
                     layoutManager = LinearLayoutManager(context)
-                    adapter = SearchResultsRecyclerAdapter(results)
+                    adapter = SearchResultsRecyclerAdapter(results, arrayListOf(uni, duration,
+                            location, clazz, professor, size))
                 }
                 return@OnKeyListener true
             }

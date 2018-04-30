@@ -2,6 +2,9 @@ package com.school.optimstudy.find_study_group_activity
 
 import android.app.Activity
 import android.graphics.Color
+import android.os.Bundle
+import android.support.v4.app.SupportActivity
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +13,7 @@ import com.school.optimstudy.R
 import com.school.optimstudy.create_study_group.Create_Study_Group_Congratulations
 import kotlinx.android.synthetic.main.find_study_group_result.view.*
 
-class SearchResultsRecyclerAdapter(private val data: Array<Pair<String, String>>) :
+class SearchResultsRecyclerAdapter(private val data: Array<Pair<String, String>>, val details: ArrayList<String>) :
         RecyclerView.Adapter<SearchResultsRecyclerAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
@@ -26,9 +29,13 @@ class SearchResultsRecyclerAdapter(private val data: Array<Pair<String, String>>
         holder.view.search_result_description.text = data[position].second
         holder.view.search_result_image.setBackgroundColor(Color.BLUE)
         holder.view.result_bg.setOnClickListener {
-            val act = holder.view.context as Activity
-            act.fragmentManager.beginTransaction()
-                    .replace(R.id.frame_layout, )
+            val act = holder.view.context as AppCompatActivity
+            val groupview = GroupView()
+            val args = Bundle()
+            args.putStringArrayList("groupVals", details)
+            groupview.arguments = args
+            act.supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame_layout, groupview)
                     .commit()
         }
     }
