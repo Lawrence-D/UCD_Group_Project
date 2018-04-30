@@ -30,5 +30,4 @@ class GroupView : Fragment() {
                     .commit()
         }
     }
-
 }
